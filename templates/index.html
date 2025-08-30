@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoU - Classificador de E-mails</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Empresa Samys 🚀</h1>
+            <p>Classificador Inteligente de E-mails</p>
+        </header>
+
+        <main>
+            <form id="email-form">
+                <div class="input-group">
+                    <label for="email_text">Cole o texto do e-mail aqui:</label>
+                    <textarea id="email_text" name="email_text" rows="10" placeholder="Ex: Olá, gostaria de saber o status do meu pedido 123..."></textarea>
+                </div>
+                
+                <div class="separator">OU</div>
+
+                <div class="input-group">
+                    <label for="email_file">Faça o upload de um arquivo (.txt ou .pdf):</label>
+                    <input type="file" id="email_file" name="email_file" accept=".txt,.pdf">
+                </div>
+
+                <button type="submit" id="submit-btn">Analisar E-mail</button>
+            </form>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Analisando com a IA...</p>
+            </div>
+
+            <div id="result-container" class="hidden">
+                <h2>Análise do E-mail</h2>
+                <div class="result-item">
+                    <h3>Categoria:</h3>
+                    <p id="result-classificacao"></p>
+                </div>
+                <div class="result-item">
+                    <h3>Sugestão de Resposta:</h3>
+                    <p id="result-sugestao"></p>
+                </div>
+            </div>
+
+             <div id="error-container" class="hidden">
+                <h3>Ocorreu um Erro</h3>
+                <p id="error-message"></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>@ 2025 - Desenvolvimento</p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
